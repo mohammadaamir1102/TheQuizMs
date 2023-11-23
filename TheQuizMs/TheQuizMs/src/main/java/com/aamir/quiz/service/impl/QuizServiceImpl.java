@@ -6,9 +6,8 @@ import com.aamir.quiz.repo.QuizRepository;
 import com.aamir.quiz.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Service
 public class QuizServiceImpl implements QuizService {

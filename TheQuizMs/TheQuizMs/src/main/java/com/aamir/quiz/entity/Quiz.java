@@ -9,11 +9,6 @@ import lombok.*;
 
 import java.util.List;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Setter
-@Getter
 @Entity
 public class Quiz {
 
@@ -22,4 +17,46 @@ public class Quiz {
     private Long quizId;
     private String title;
     transient List<QuestionResponseVo> questions;
+
+    public Quiz() {
+    }
+
+    public Quiz(Long quizId, String title, List<QuestionResponseVo> questions) {
+        this.quizId = quizId;
+        this.title = title;
+        this.questions = questions;
+    }
+
+    public Long getQuizId() {
+        return quizId;
+    }
+
+    public void setQuizId(Long quizId) {
+        this.quizId = quizId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public List<QuestionResponseVo> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<QuestionResponseVo> questions) {
+        this.questions = questions;
+    }
+
+    @Override
+    public String toString() {
+        return "Quiz{" +
+                "quizId=" + quizId +
+                ", title='" + title + '\'' +
+                ", questions=" + questions +
+                '}';
+    }
 }

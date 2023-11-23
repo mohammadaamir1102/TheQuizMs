@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="TheQuizServiceRegistry" />
+        <module name="TheQuizAPIGateway" />
         <module name="TheQuizMs" />
         <module name="TheQuestionServiceMs" />
       </profile>
@@ -16,6 +17,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="TheQuestionServiceMs" options="-parameters" />
+      <module name="TheQuizAPIGateway" options="-parameters" />
       <module name="TheQuizMs" options="-parameters" />
       <module name="TheQuizServiceRegistry" options="-parameters" />
     </option>

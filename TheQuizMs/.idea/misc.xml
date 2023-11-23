@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/TheQuizServiceMs/pom.xml" />
         <option value="$PROJECT_DIR$/TheQuestionServiceMs/pom.xml" />
         <option value="$PROJECT_DIR$/TheQuizServiceRegistry/pom.xml" />
+        <option value="$PROJECT_DIR$/TheQuizAPIGateway/pom.xml" />
       </list>
     </option>
   </component>
