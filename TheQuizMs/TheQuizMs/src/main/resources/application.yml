@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/the_quiz_ms
+    username: root
+    password: root
+    driver-class-name : com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQL8Dialect
+      format_sql: true
+  application:
+    name: QUIZ
+server:
+  port: 8081
