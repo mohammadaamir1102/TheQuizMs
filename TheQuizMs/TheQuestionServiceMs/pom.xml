@@ -11,7 +11,7 @@
     <groupId>com.aamir.question.service</groupId>
     <artifactId>TheQuestionServiceMs</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>TheQuizServiceMs</name>
+    <name>TheQuestionServiceMs</name>
     <description>The Quiz Service using for quiz purpose developer by Aamir</description>
     <properties>
         <java.version>17</java.version>
