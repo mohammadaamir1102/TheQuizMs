@@ -1,0 +1,11 @@
+server:
+  port: 8083
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false # for avoiding itself(service registry) register because it is already a server
+    fetch-registry: false
+spring:
+  application:
+    name: SERVICE-REGISTRY
