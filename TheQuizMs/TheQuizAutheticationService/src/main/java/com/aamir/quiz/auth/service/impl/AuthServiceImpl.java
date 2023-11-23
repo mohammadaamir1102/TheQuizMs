@@ -18,7 +18,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public UserCredential saveUser(UserCredential userCredential) {
-        userCredential.g
-        return null;
+        userCredential.setPassword(passwordEncoder.encode(userCredential.getPassword()));
+        return userCredentialRepo.save(userCredential);
     }
 }
