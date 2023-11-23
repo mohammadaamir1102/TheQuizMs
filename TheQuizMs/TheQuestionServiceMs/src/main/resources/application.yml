@@ -8,11 +8,16 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-      dialect: org.hibernate.dialect.MySQL8Dialect
-      format_sql: true
   application:
-    name: QUIZ-SERVICE
+    name: QUESTION-SERVICE
 server:
   port: 8082
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
 
 
