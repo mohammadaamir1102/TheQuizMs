@@ -8,12 +8,17 @@ spring:
           uri: lb://QUIZ-SERVICE
           predicates:
             - Path=/quiz/**
+          filters:
+            - AuthenticationFilter # filter for token
 
 
         - id: QUESTION-SERVICE
           uri: lb://QUESTION-SERVICE
           predicates:
             - Path=/question/**
+          filters:
+            - AuthenticationFilter # filter for token
+
 
         - id: AUTHENTICATION-SERVICE
           uri: lb://AUTHENTICATION-SERVICE
