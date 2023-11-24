@@ -15,6 +15,11 @@ spring:
           predicates:
             - Path=/question/**
 
+        - id: AUTHENTICATION-SERVICE
+          uri: lb://AUTHENTICATION-SERVICE
+          predicates:
+            - Path=/auth/**
+
 server:
   port: 8083
 
