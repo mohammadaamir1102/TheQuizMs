@@ -20,7 +20,8 @@ public class QuizController {
     }
 
     @GetMapping("/{id}")
-    public Quiz get(@PathVariable Long id) {
+    public Quiz get(@PathVariable Long id, @RequestHeader("LoggedInUser") String loggedInUser) {
+        System.out.println("Logged in user name " + loggedInUser);
         return quizService.get(id);
     }
 

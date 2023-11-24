@@ -1,12 +1,12 @@
 package com.aamir.quiz.gateway.filter;
 
 
-
 import com.aamir.quiz.gateway.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -27,6 +27,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
     @Override
     public GatewayFilter apply(Config config) {
         return ((exchange, chain) -> {
+            ServerHttpRequest loggedInUser = null;
             if (validator.isSecured.test(exchange.getRequest())) {
                 //header contains token or not
                 if (!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION)) {
@@ -43,12 +44,18 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
                   */
                     jwtUtil.validateToken(authHeader);
 
+//                  passing LoggedInUser name data into header for corresponding service
+//                  check QuizController in TheQuizMs for seeing LoggedInUserName
+                    loggedInUser = exchange.getRequest().mutate()
+                            .header("LoggedInUser", jwtUtil.getUsernameFromToken(authHeader))
+                            .build();
+
                 } catch (Exception e) {
                     System.out.println("invalid access...!");
                     throw new RuntimeException("un authorized access to application");
                 }
             }
-            return chain.filter(exchange);
+            return chain.filter(exchange.mutate().request(loggedInUser).build());
         });
     }
 
